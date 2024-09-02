@@ -78,8 +78,9 @@ func readFiles(filenames []string) (ret []*abi.InterfaceDesc, err error) {
 
 func ParseOperationDesc(t abi.ContractName, d *abi.OperationDesc) (*core.ContractOperation, error) {
 	var opId uint32
-
+	//parse opID from string to uint32.
 	if c := d.Code; strings.HasPrefix(c, "0x") {
+		//opID is hex
 		n := new(big.Int)
 		_, ok := n.SetString(c[2:], 16)
 		if !ok {
@@ -87,6 +88,7 @@ func ParseOperationDesc(t abi.ContractName, d *abi.OperationDesc) (*core.Contrac
 		}
 		opId = uint32(n.Uint64())
 	} else {
+		//opID is decimal
 		n, err := strconv.ParseUint(c, 10, 32)
 		if err != nil {
 			return nil, errors.Wrapf(err, "parse %s operation id", d.Name)

@@ -346,6 +346,7 @@ func NewOperationDesc(x any) (*OperationDesc, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "lookup operation id")
 	}
+	//parse uint32 to hex string
 	ret.Code = fmt.Sprintf("0x%x", opCode)
 
 	ret.Body, err = tlbMakeDesc(t, true)

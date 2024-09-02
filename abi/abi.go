@@ -41,7 +41,7 @@ func RegisterDefinitions(definitions map[TLBType]TLBFieldsDesc, depth ...int) er
 			// we register it for the use in unions
 			tlb.RegisterWithName(string(dn), reflect.New(dt).Elem().Interface())
 		}
-
+		//global param
 		registeredDefinitions[dn] = d
 	}
 
