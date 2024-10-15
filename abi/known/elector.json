@@ -1,0 +1,138 @@
+[
+  {
+    "interface_name": "elector",
+    "addresses": [
+      "Ef8zMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzM0vF"
+    ],
+    "in_messages": [
+      {
+        "op_name": "elector_elector",
+        "op_code": "0xee6f454c",
+        "body": [
+          {
+            "name": "addr",
+            "tlb_type": "## 256",
+            "format": "MsgAddress"
+          },
+          {
+            "name": "query_id",
+            "tlb_type": "## 64",
+            "format": "uint64"
+          },
+          {
+            "name": "reason",
+            "tlb_type": "## 8",
+            "format": "int8"
+          }
+        ]
+      },
+      [
+        {
+          "op_name": "elector_new_stake",
+          "op_code": "0x4e73744b",
+          "body": [
+            {
+              "name": "query_id",
+              "tlb_type": "## 64",
+              "format": "uint64"
+            },
+            {
+              "name": "validator_pubkey",
+              "tlb_type": "## 256",
+              "format": "uint256"
+            },
+            {
+              "name": "stake_at",
+              "tlb_type": "## 32",
+              "format": "uint32"
+            },
+            {
+              "name": "max_factor",
+              "tlb_type": "## 32",
+              "format": "uint32"
+            },
+            {
+              "name": "adnl_addr",
+              "tlb_type": "## 256",
+              "format": "uint256"
+            },
+            {
+              "name": "signature",
+              "tlb_type": "## 512",
+              "format": "bits"
+            }
+          ]
+        },
+        {
+          "op_name": "elector_send_confirmation",
+          "op_code": "0xf374484c",
+          "body": [
+            {
+              "name": "addr",
+              "tlb_type": "MsgAddress",
+              "format": "address"
+            },
+            {
+              "name": "query_id",
+              "tlb_type": "## 64",
+              "format": "uint64"
+            },
+            {
+              "name": "comment",
+              "tlb_type": "## 64",
+              "format": "uint64"
+            }
+          ]
+        },
+        {
+          "op_name": "elector_recover_stake",
+          "op_code": "0x47657424",
+          "body": [
+            {
+              "name": "query_id",
+              "tlb_type": "## 64",
+              "format": "uint64"
+            }
+          ]
+        },
+        {
+          "op_name": "recover_stake_error",
+          "op_code": "0xfffffffe",
+          "body": [
+            {
+              "name": "query_id",
+              "tlb_type": "## 64",
+              "format": "uint64"
+            },
+            {
+              "name": "op",
+              "tlb_type": "## 32",
+              "format": "uint32"
+            },
+            {
+              "name": "amount",
+              "tlb_type": "## 64",
+              "format": "uint64"
+            }
+          ]
+        },
+        {
+          "op_name": "recover_stake_ok",
+          "op_code": "0xf96f7324",
+          "body": [
+            {
+              "name": "query_id",
+              "tlb_type": "## 64",
+              "format": "uint64"
+            },
+            {
+              "name": "amount",
+              "tlb_type": "## 64",
+              "format": "uint64"
+            }
+          ]
+        }
+      ]
+    ]
+  }
+]
